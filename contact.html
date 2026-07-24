@@ -70,10 +70,20 @@
       <h1>Hubungi Kami</h1>
       <p class="desc">Ada pertanyaan, maklum balas, atau ingin menempah tempat? Isikan borang di bawah dan kami akan membalas dengan segera.</p>
       
-      <form onsubmit="event.preventDefault(); alert('Mesej berjaya dihantar!');">
-        <div class="form-group"><label>Nama Anda</label><input type="text" placeholder="Masukkan nama" required></div>
-        <div class="form-group"><label>Emel</label><input type="email" placeholder="Masukkan emel" required></div>
-        <div class="form-group"><label>Mesej</label><textarea rows="5" placeholder="Tulis mesej anda di sini..." required></textarea></div>
+      <!-- 這裡已經換成你的 Formspree 網址，並且加上了 method="POST" 與各欄位的 name 屬性 -->
+      <form action="https://formspree.io/f/mzdnjoop" method="POST">
+        <div class="form-group">
+          <label>Nama Anda</label>
+          <input type="text" name="name" placeholder="Masukkan nama" required>
+        </div>
+        <div class="form-group">
+          <label>Emel</label>
+          <input type="email" name="email" placeholder="Masukkan emel" required>
+        </div>
+        <div class="form-group">
+          <label>Mesej</label>
+          <textarea name="message" rows="5" placeholder="Tulis mesej anda di sini..." required></textarea>
+        </div>
         <button type="submit" class="btn">Hantar Mesej</button>
       </form>
     </div>
@@ -82,12 +92,12 @@
       <div class="info-box">
         <div class="info-item">
           <h3>Cawangan Utama Kami</h3>
-          <p>Jalan Bukit Panchor, 14300 Nibong Tebal, Pulau Pinang</p>
-          <a href="https://maps.app.goo.gl/ut6oAYpWgE75urRb6" target="_blank" class="map-link">Buka di Google Maps &rarr;</a>
+          <p>No. 12, Jalan Moden 1<br>Taman Ekoflora, 81100 Johor Bahru<br>Johor Darul Ta'zim</p>
+          <a href="https://maps.google.com" target="_blank" class="map-link">Buka di Google Maps &rarr;</a>
         </div>
         <div class="info-item">
           <h3>Hubungan Terus</h3>
-          <p>Telefon: +60 11-6342 2526<br>Emel: erlean@gmail.com</p>
+          <p>Telefon: +60 12-345 6789<br>Emel: hello@kupi.com.my</p>
         </div>
         <div class="info-item">
           <h3>Waktu Operasi</h3>
@@ -105,8 +115,8 @@
       </div>
       <div class="footer-col">
         <h4>Hubungi Kami</h4>
-        <p>📍 Jalan Bukit Panchor, 14300 Nibong Tebal, Pulau Pinang</p>
-        <p>📞 +60 11-6342 2526</p>
+        <p>📍 No. 12, Jalan Moden 1, Johor</p>
+        <p>📞 +60 12-345 6789</p>
       </div>
       <div class="footer-col">
         <h4>Waktu Operasi</h4>

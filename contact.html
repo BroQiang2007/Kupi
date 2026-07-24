@@ -7,34 +7,49 @@
   <style>
     :root { --dark: #0D1310; --brown: #A36939; --bg: #F9F8F6; }
     * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background: var(--bg); color: var(--dark); }
+    body { background: var(--bg); color: var(--dark); display: flex; flex-direction: column; min-height: 100vh; }
     
-    /* Header */
     header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; }
     .logo { color: #FFF; font-size: 26px; font-weight: bold; letter-spacing: 2px; }
     .logo span { color: var(--brown); }
     nav a { color: #FFF; text-decoration: none; margin-left: 25px; font-weight: 500; transition: 0.3s; }
     nav a.active, nav a:hover { color: var(--brown); }
     
+    /* Animations */
+    @keyframes fadeRight { 0% { opacity: 0; transform: translateX(-30px); } 100% { opacity: 1; transform: translateX(0); } }
+    @keyframes fadeLeft { 0% { opacity: 0; transform: translateX(30px); } 100% { opacity: 1; transform: translateX(0); } }
+
+    .anim-left { opacity: 0; animation: fadeRight 0.8s ease-out forwards; }
+    .anim-right { opacity: 0; animation: fadeLeft 0.8s ease-out forwards; animation-delay: 0.2s; }
+
     /* Contact Content */
-    .container { padding: 80px 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
-    h1 { font-size: 36px; margin-bottom: 20px; }
-    p.desc { color: #666; margin-bottom: 40px; font-size: 16px; line-height: 1.6; }
+    .container { flex: 1; padding: 60px 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; width: 100%; }
+    h1 { font-size: 36px; margin-bottom: 15px; }
+    p.desc { color: #666; margin-bottom: 30px; font-size: 16px; line-height: 1.6; }
     
-    /* Form Styles */
     .form-group { margin-bottom: 20px; }
-    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
-    .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #CCC; border-radius: 6px; font-size: 16px; background: white; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; font-size: 14px; }
+    .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #DDD; border-radius: 6px; font-size: 15px; background: white; transition: 0.3s; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--brown); box-shadow: 0 0 0 2px rgba(163,105,57,0.2); }
     .btn { background: var(--brown); color: white; padding: 15px 30px; border: none; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.3s; width: 100%; }
-    .btn:hover { background: #8a572e; }
+    .btn:hover { background: #8a572e; transform: translateY(-2px); }
     
-    /* Info Styles */
-    .info-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    .info-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
     .info-item { margin-bottom: 30px; }
-    .info-item h3 { color: var(--brown); margin-bottom: 10px; font-size: 20px; }
-    .info-item p { color: #555; line-height: 1.6; }
-    .map-link { color: var(--brown); text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; }
+    .info-item:last-child { margin-bottom: 0; }
+    .info-item h3 { color: var(--brown); margin-bottom: 10px; font-size: 18px; }
+    .info-item p { color: #555; line-height: 1.6; font-size: 15px; }
+    .map-link { color: var(--brown); text-decoration: none; font-weight: bold; display: inline-block; margin-top: 5px; font-size: 14px; }
     .map-link:hover { text-decoration: underline; }
+
+    /* Footer */
+    footer { background: var(--dark); color: white; padding: 40px 8% 20px; margin-top: 40px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 30px; }
+    .footer-col h4 { color: var(--brown); margin-bottom: 15px; font-size: 18px; }
+    .footer-col p { color: #CCC; font-size: 14px; margin-bottom: 8px; line-height: 1.5; }
+    .copyright { text-align: center; color: #888; font-size: 13px; }
+
+    @media (max-width: 768px) { .container { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -49,50 +64,59 @@
     </nav>
   </header>
 
-  <div class="container">
-    <!-- Contact Form -->
-    <div>
+  <main class="container">
+    <div class="anim-left">
       <h1>Hubungi Kami</h1>
       <p class="desc">Ada pertanyaan, maklum balas, atau ingin menempah tempat? Isikan borang di bawah dan kami akan membalas dengan segera.</p>
       
       <form onsubmit="event.preventDefault(); alert('Mesej berjaya dihantar!');">
-        <div class="form-group">
-          <label>Nama Anda</label>
-          <input type="text" placeholder="Masukkan nama" required>
-        </div>
-        <div class="form-group">
-          <label>Emel</label>
-          <input type="email" placeholder="Masukkan emel" required>
-        </div>
-        <div class="form-group">
-          <label>Mesej</label>
-          <textarea rows="5" placeholder="Tulis mesej anda di sini..." required></textarea>
-        </div>
+        <div class="form-group"><label>Nama Anda</label><input type="text" placeholder="Masukkan nama" required></div>
+        <div class="form-group"><label>Emel</label><input type="email" placeholder="Masukkan emel" required></div>
+        <div class="form-group"><label>Mesej</label><textarea rows="5" placeholder="Tulis mesej anda di sini..." required></textarea></div>
         <button type="submit" class="btn">Hantar Mesej</button>
       </form>
     </div>
 
-    <!-- Contact Information -->
-    <div>
+    <div class="anim-right">
       <div class="info-box">
         <div class="info-item">
           <h3>Cawangan Utama Kami</h3>
           <p>No. 12, Jalan Moden 1<br>Taman Ekoflora, 81100 Johor Bahru<br>Johor Darul Ta'zim</p>
           <a href="https://maps.google.com" target="_blank" class="map-link">Buka di Google Maps &rarr;</a>
         </div>
-        
         <div class="info-item">
           <h3>Hubungan Terus</h3>
           <p>Telefon: +60 12-345 6789<br>Emel: hello@kupi.com.my</p>
         </div>
-        
         <div class="info-item">
           <h3>Waktu Operasi</h3>
           <p>Isnin - Jumaat: 8:00 Pagi - 10:00 Malam<br>Sabtu - Ahad: 9:00 Pagi - 11:00 Malam</p>
         </div>
       </div>
     </div>
-  </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom: 15px;">KUPI<span>.</span></div>
+        <p>Destinasi kopi dan pastri moden minimalis pilihan anda.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <p>📍 No. 12, Jalan Moden 1, Johor</p>
+        <p>📞 +60 12-345 6789</p>
+      </div>
+      <div class="footer-col">
+        <h4>Waktu Operasi</h4>
+        <p>Isnin - Jumaat: 8 AM - 10 PM</p>
+        <p>Sabtu - Ahad: 9 AM - 11 PM</p>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2026 KUPI Company. Hak Cipta Terpelihara.
+    </div>
+  </footer>
 
 </body>
 </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KUPI - Welcome</title>
+  <style>
+    :root { --dark: #0D1310; --brown: #A36939; --bg: #F9F8F6; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background: var(--bg); color: var(--dark); height: 100vh; display: flex; flex-direction: column; }
+    
+    /* Header (Navigasi) */
+    header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; }
+    .logo { color: #FFF; font-size: 26px; font-weight: bold; letter-spacing: 2px; }
+    .logo span { color: var(--brown); }
+    nav a { color: #FFF; text-decoration: none; margin-left: 25px; font-weight: 500; transition: 0.3s; }
+    nav a.active, nav a:hover { color: var(--brown); }
+    
+    /* Main Content (Portal Style) */
+    .portal-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 0 8%; background: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1600&auto=format&fit=crop') center/cover; position: relative; }
+    .portal-container::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(13, 19, 16, 0.8); }
+    
+    .content-box { position: relative; z-index: 1; text-align: center; color: white; max-width: 800px; }
+    .content-box h1 { font-size: 50px; margin-bottom: 20px; }
+    .content-box p { font-size: 18px; color: #EEE; margin-bottom: 40px; line-height: 1.6; }
+    
+    /* Action Buttons */
+    .btn-group { display: flex; gap: 20px; justify-content: center; }
+    .btn { padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 16px; transition: 0.3s; }
+    .btn-primary { background: var(--brown); color: white; border: 2px solid var(--brown); }
+    .btn-primary:hover { background: #8a572e; border-color: #8a572e; }
+    .btn-outline { background: transparent; color: white; border: 2px solid white; }
+    .btn-outline:hover { background: white; color: var(--dark); }
+
+  </style>
+</head>
+<body>
+
+  <!-- Header Multi-page -->
+  <header>
+    <div class="logo">KUPI<span>.</span></div>
+    <nav>
+      <a href="index.html" class="active">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="profile.html">Profile</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Portal Content -->
+  <div class="portal-container">
+    <div class="content-box">
+      <h1>Kopi Moden & Minimalis</h1>
+      <p>Selamat datang ke KUPI. Kami menyajikan kopi artisan dan pastri segar dalam ruang yang direka untuk ketenangan anda. Sila terokai laman web kami melalui pautan di bawah.</p>
+      
+      <!-- Pautan ke halaman lain (Multi-page) -->
+      <div class="btn-group">
+        <a href="menu.html" class="btn btn-primary">Lihat Menu (Menu Page)</a>
+        <a href="profile.html" class="btn btn-outline">Kenali Kami (Profile Page)</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

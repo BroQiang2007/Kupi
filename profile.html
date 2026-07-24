@@ -7,21 +7,35 @@
   <style>
     :root { --dark: #0D1310; --brown: #A36939; --bg: #F9F8F6; }
     * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background: var(--bg); color: var(--dark); line-height: 1.8; }
+    body { background: var(--bg); color: var(--dark); display: flex; flex-direction: column; min-height: 100vh; line-height: 1.8; }
     
-    /* Header */
     header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; }
     .logo { color: #FFF; font-size: 26px; font-weight: bold; letter-spacing: 2px; }
     .logo span { color: var(--brown); }
     nav a { color: #FFF; text-decoration: none; margin-left: 25px; font-weight: 500; transition: 0.3s; }
     nav a.active, nav a:hover { color: var(--brown); }
     
+    /* Animations */
+    @keyframes fadeUp { 0% { opacity: 0; transform: translateY(30px); } 100% { opacity: 1; transform: translateY(0); } }
+    
+    .animate-item { opacity: 0; animation: fadeUp 0.8s ease-out forwards; }
+    .delay-1 { animation-delay: 0.2s; }
+    .delay-2 { animation-delay: 0.4s; }
+    .delay-3 { animation-delay: 0.6s; }
+
     /* Profile Content */
-    .container { padding: 80px 8%; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
-    .title { font-size: 40px; text-align: center; margin-bottom: 20px; }
-    .subtitle { color: var(--brown); font-size: 20px; text-align: center; font-weight: bold; margin-bottom: 20px; }
+    .container { flex: 1; padding: 60px 8%; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; width: 100%; }
+    .title { font-size: 40px; text-align: center; margin-bottom: 10px; }
+    .subtitle { color: var(--brown); font-size: 20px; text-align: center; font-weight: bold; }
     .text-content p { font-size: 16px; margin-bottom: 20px; color: #444; }
-    .image-banner { width: 100%; height: 400px; background: url('https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=1200&auto=format&fit=crop') center/cover; border-radius: 12px; }
+    .image-banner { width: 100%; height: 400px; background: url('https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?q=80&w=1200&auto=format&fit=crop') center/cover; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+    /* Footer */
+    footer { background: var(--dark); color: white; padding: 40px 8% 20px; margin-top: 40px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 30px; }
+    .footer-col h4 { color: var(--brown); margin-bottom: 15px; font-size: 18px; }
+    .footer-col p { color: #CCC; font-size: 14px; margin-bottom: 8px; line-height: 1.5; }
+    .copyright { text-align: center; color: #888; font-size: 13px; }
   </style>
 </head>
 <body>
@@ -36,20 +50,42 @@
     </nav>
   </header>
 
-  <div class="container">
-    <div>
+  <main class="container">
+    <div class="animate-item">
       <h1 class="title">Kenali Kami</h1>
       <p class="subtitle">"Lebih Daripada Sekadar Secawan Kopi"</p>
     </div>
     
-    <div class="image-banner"></div>
+    <div class="image-banner animate-item delay-1"></div>
 
-    <div class="text-content">
+    <div class="text-content animate-item delay-2">
       <p>Syarikat <strong>KUPI</strong> merupakan sebuah jenama yang ditubuhkan dengan satu visi yang ringkas: menyajikan kopi berkualiti tinggi dan pastri segar dalam suasana yang tenang.</p>
       <p>Berpegang kepada konsep moden dan minimalis, kami percaya bahawa kecantikan sebenar terletak pada kesederhanaan. Setiap sudut di premis kami direka untuk memberikan ketenangan fikiran, membolehkan anda melarikan diri seketika daripada kesibukan kota.</p>
       <p>Biji kopi kami dipilih secara teliti oleh pakar pembakar (roaster) kami, memastikan setiap tegukan memberikan keseimbangan rasa yang sempurna. Padankan kopi anda dengan pastri artisan kami yang dibakar segar setiap pagi, dan nikmati momen berharga anda di KUPI.</p>
     </div>
-  </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom: 15px;">KUPI<span>.</span></div>
+        <p>Destinasi kopi dan pastri moden minimalis pilihan anda.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <p>📍 No. 12, Jalan Moden 1, Johor</p>
+        <p>📞 +60 12-345 6789</p>
+      </div>
+      <div class="footer-col">
+        <h4>Waktu Operasi</h4>
+        <p>Isnin - Jumaat: 8 AM - 10 PM</p>
+        <p>Sabtu - Ahad: 9 AM - 11 PM</p>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2026 KUPI Company. Hak Cipta Terpelihara.
+    </div>
+  </footer>
 
 </body>
 </html>

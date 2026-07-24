@@ -42,8 +42,10 @@
 
     .menu-img { height: 220px; background-size: cover; background-position: center; }
     .menu-info { padding: 25px; }
-    .menu-title { font-size: 18px; font-weight: bold; margin-bottom: 10px; display: flex; justify-content: space-between; }
-    .menu-price { color: var(--brown); }
+    
+    /* 調整文字排版，讓價格夾在標題與介紹中間 */
+    .menu-title { font-size: 19px; font-weight: bold; margin-bottom: 5px; color: var(--dark); }
+    .menu-price { color: var(--brown); font-weight: 600; font-size: 15px; margin-bottom: 12px; }
     .menu-desc { color: #666; line-height: 1.6; font-size: 14px; }
 
     /* Footer */
@@ -57,7 +59,6 @@
 <body>
 
   <header>
-    <!-- 可點擊 Logo -->
     <a href="index.html" class="logo">KUPI<span>.</span></a>
     <nav>
       <a href="index.html">Home</a>
@@ -71,25 +72,23 @@
     <h1 class="page-title">Menu Pilihan Kami</h1>
     <div class="menu-grid">
       
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Espresso Hot</span> <span class="menu-price">RM 9.00</span></div><div class="menu-desc">Pekat, kaya dengan rasa asli biji kopi pilihan untuk memulakan hari anda.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title">Espresso Hot</div><div class="menu-price">RM 9.00</div><div class="menu-desc">Pekat, kaya dengan rasa asli biji kopi pilihan untuk memulakan hari anda.</div></div></div>
       
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Iced Spanish Latte</span> <span class="menu-price">RM 14.00</span></div><div class="menu-desc">Gabungan espresso berkrim dengan kemanisan susu pekat yang menyegarkan.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title">Iced Spanish Latte</div><div class="menu-price">RM 14.00</div><div class="menu-desc">Gabungan espresso berkrim dengan kemanisan susu pekat yang menyegarkan.</div></div></div>
       
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Butter Croissant</span> <span class="menu-price">RM 8.50</span></div><div class="menu-desc">Pastri berlapis yang rangup di luar dan lembut di dalam, dibakar segar.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title">Butter Croissant</div><div class="menu-price">RM 8.50</div><div class="menu-desc">Pastri berlapis yang rangup di luar dan lembut di dalam, dibakar segar.</div></div></div>
       
-      <!-- 已修復：抹茶拿鐵 -->
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Premium Matcha Latte</span> <span class="menu-price">RM 13.00</span></div><div class="menu-desc">Serbuk teh hijau Uji berkualiti tinggi yang diputar bersama susu suam.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title">Premium Matcha Latte</div><div class="menu-price">RM 13.00</div><div class="menu-desc">Serbuk teh hijau Uji berkualiti tinggi yang diputar bersama susu suam.</div></div></div>
       
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Caramel Macchiato</span> <span class="menu-price">RM 15.00</span></div><div class="menu-desc">Kopi vanila dengan lapisan buih susu dan dilumur karamel manis.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title">Caramel Macchiato</div><div class="menu-price">RM 15.00</div><div class="menu-desc">Kopi vanila dengan lapisan buih susu dan dilumur karamel manis.</div></div></div>
       
-      <!-- 已修復：布朗尼 (更換為保證有效的連結) -->
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Dark Choc Brownie</span> <span class="menu-price">RM 10.00</span></div><div class="menu-desc">Kek coklat padat dan kenyal dengan cip coklat gelap premium.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title">Dark Choc Brownie</div><div class="menu-price">RM 10.00</div><div class="menu-desc">Kek coklat padat dan kenyal dengan cip coklat gelap premium.</div></div></div>
       
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1524351199678-941a58a3df50?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Classic Cheesecake</span> <span class="menu-price">RM 12.00</span></div><div class="menu-desc">Kek keju gaya New York yang dibakar sempurna dengan tekstur halus.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1524351199678-941a58a3df50?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title">Classic Cheesecake</div><div class="menu-price">RM 12.00</div><div class="menu-desc">Kek keju gaya New York yang dibakar sempurna dengan tekstur halus.</div></div></div>
       
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Earl Grey Hot Tea</span> <span class="menu-price">RM 8.00</span></div><div class="menu-desc">Teh hitam klasik dengan aroma bergamot yang menenangkan jiwa.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1544787219-7f47ccb76574?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title">Earl Grey Hot Tea</div><div class="menu-price">RM 8.00</div><div class="menu-desc">Teh hitam klasik dengan aroma bergamot yang menenangkan jiwa.</div></div></div>
       
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Kopi Gula Melaka</span> <span class="menu-price">RM 12.00</span></div><div class="menu-desc">Espresso bersama susu dan keunikan rasa manis Gula Melaka asli tempatan.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1461023058943-07fcbe16d735?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title">Kopi Gula Melaka</div><div class="menu-price">RM 12.00</div><div class="menu-desc">Espresso bersama susu dan keunikan rasa manis Gula Melaka asli tempatan.</div></div></div>
     </div>
   </main>
 

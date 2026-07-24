@@ -7,34 +7,32 @@
   <style>
     :root { --dark: #0D1310; --brown: #A36939; --bg: #F9F8F6; }
     * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background: var(--bg); color: var(--dark); height: 100vh; display: flex; flex-direction: column; }
+    body { background: var(--bg); color: var(--dark); display: flex; flex-direction: column; min-height: 100vh; }
     
-    /* Header (Navigasi) */
+    /* Header */
     header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; }
     .logo { color: #FFF; font-size: 26px; font-weight: bold; letter-spacing: 2px; }
     .logo span { color: var(--brown); }
     nav a { color: #FFF; text-decoration: none; margin-left: 25px; font-weight: 500; transition: 0.3s; }
     nav a.active, nav a:hover { color: var(--brown); }
     
-    /* Main Content (Portal Style) */
-    .portal-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 0 8%; background: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1600&auto=format&fit=crop') center/cover; position: relative; }
-    .portal-container::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(13, 19, 16, 0.8); }
-    
-    /* 動畫設定 */
+    /* Animations */
     @keyframes fadeUp {
       0% { opacity: 0; transform: translateY(30px); }
       100% { opacity: 1; transform: translateY(0); }
     }
 
+    /* Main Content */
+    .portal-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 8%; background: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1600&auto=format&fit=crop') center/cover; position: relative; }
+    .portal-container::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(13, 19, 16, 0.8); }
+    
     .content-box { position: relative; z-index: 1; text-align: center; color: white; max-width: 800px; animation: fadeUp 1s ease-out forwards; }
     
-    /* Promosi Label */
-    .promo-badge { background: #A36939; color: white; display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 20px; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(163, 105, 57, 0.3); }
-    
+    .promo-badge { background: var(--brown); color: white; display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 20px; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(163, 105, 57, 0.3); }
     .content-box h1 { font-size: 50px; margin-bottom: 20px; }
     .content-box p { font-size: 18px; color: #EEE; margin-bottom: 40px; line-height: 1.6; }
     
-    /* Action Buttons */
+    /* Buttons */
     .btn-group { display: flex; gap: 20px; justify-content: center; }
     .btn { padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 16px; transition: 0.3s; }
     .btn-primary { background: var(--brown); color: white; border: 2px solid var(--brown); }
@@ -42,6 +40,12 @@
     .btn-outline { background: transparent; color: white; border: 2px solid white; }
     .btn-outline:hover { background: white; color: var(--dark); transform: translateY(-3px); }
 
+    /* Footer */
+    footer { background: var(--dark); color: white; padding: 40px 8% 20px; }
+    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 30px; }
+    .footer-col h4 { color: var(--brown); margin-bottom: 15px; font-size: 18px; }
+    .footer-col p { color: #CCC; font-size: 14px; margin-bottom: 8px; line-height: 1.5; }
+    .copyright { text-align: center; color: #888; font-size: 13px; }
   </style>
 </head>
 <body>
@@ -56,9 +60,9 @@
     </nav>
   </header>
 
-  <div class="portal-container">
+  <main class="portal-container">
     <div class="content-box">
-      <div class="promo-badge">🔥 Promosi Terkini: Set Kombo Kopi + Croissant Diskaun 20%</div>
+      <div class="promo-badge">🔥 Promosi Terkini: Set Kombo Diskaun 20%</div>
       <h1>Kopi Moden & Minimalis</h1>
       <p>Selamat datang ke KUPI. Kami menyajikan kopi artisan dan pastri segar dalam ruang yang direka untuk ketenangan anda. Sila terokai laman web kami melalui pautan di bawah.</p>
       
@@ -67,7 +71,29 @@
         <a href="profile.html" class="btn btn-outline">Kenali Kami</a>
       </div>
     </div>
-  </div>
+  </main>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <div class="logo" style="margin-bottom: 15px;">KUPI<span>.</span></div>
+        <p>Destinasi kopi dan pastri moden minimalis pilihan anda.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Hubungi Kami</h4>
+        <p>📍 No. 12, Jalan Moden 1, Johor</p>
+        <p>📞 +60 12-345 6789</p>
+      </div>
+      <div class="footer-col">
+        <h4>Waktu Operasi</h4>
+        <p>Isnin - Jumaat: 8 AM - 10 PM</p>
+        <p>Sabtu - Ahad: 9 AM - 11 PM</p>
+      </div>
+    </div>
+    <div class="copyright">
+      &copy; 2026 KUPI Company. Hak Cipta Terpelihara.
+    </div>
+  </footer>
 
 </body>
 </html>

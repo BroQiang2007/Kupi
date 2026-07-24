@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KUPI - Contact</title>
+  <style>
+    :root { --dark: #0D1310; --brown: #A36939; --bg: #F9F8F6; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body { background: var(--bg); color: var(--dark); }
+    
+    /* Header */
+    header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; }
+    .logo { color: #FFF; font-size: 26px; font-weight: bold; letter-spacing: 2px; }
+    .logo span { color: var(--brown); }
+    nav a { color: #FFF; text-decoration: none; margin-left: 25px; font-weight: 500; transition: 0.3s; }
+    nav a.active, nav a:hover { color: var(--brown); }
+    
+    /* Contact Content */
+    .container { padding: 80px 8%; max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+    h1 { font-size: 36px; margin-bottom: 20px; }
+    p.desc { color: #666; margin-bottom: 40px; font-size: 16px; line-height: 1.6; }
+    
+    /* Form Styles */
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; font-weight: bold; }
+    .form-group input, .form-group textarea { width: 100%; padding: 12px 15px; border: 1px solid #CCC; border-radius: 6px; font-size: 16px; background: white; }
+    .btn { background: var(--brown); color: white; padding: 15px 30px; border: none; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; transition: 0.3s; width: 100%; }
+    .btn:hover { background: #8a572e; }
+    
+    /* Info Styles */
+    .info-box { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+    .info-item { margin-bottom: 30px; }
+    .info-item h3 { color: var(--brown); margin-bottom: 10px; font-size: 20px; }
+    .info-item p { color: #555; line-height: 1.6; }
+    .map-link { color: var(--brown); text-decoration: none; font-weight: bold; display: inline-block; margin-top: 10px; }
+    .map-link:hover { text-decoration: underline; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">KUPI<span>.</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html">Menu</a>
+      <a href="profile.html">Profile</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Contact Form -->
+    <div>
+      <h1>Hubungi Kami</h1>
+      <p class="desc">Ada pertanyaan, maklum balas, atau ingin menempah tempat? Isikan borang di bawah dan kami akan membalas dengan segera.</p>
+      
+      <form onsubmit="event.preventDefault(); alert('Mesej berjaya dihantar!');">
+        <div class="form-group">
+          <label>Nama Anda</label>
+          <input type="text" placeholder="Masukkan nama" required>
+        </div>
+        <div class="form-group">
+          <label>Emel</label>
+          <input type="email" placeholder="Masukkan emel" required>
+        </div>
+        <div class="form-group">
+          <label>Mesej</label>
+          <textarea rows="5" placeholder="Tulis mesej anda di sini..." required></textarea>
+        </div>
+        <button type="submit" class="btn">Hantar Mesej</button>
+      </form>
+    </div>
+
+    <!-- Contact Information -->
+    <div>
+      <div class="info-box">
+        <div class="info-item">
+          <h3>Cawangan Utama Kami</h3>
+          <p>No. 12, Jalan Moden 1<br>Taman Ekoflora, 81100 Johor Bahru<br>Johor Darul Ta'zim</p>
+          <a href="https://maps.google.com" target="_blank" class="map-link">Buka di Google Maps &rarr;</a>
+        </div>
+        
+        <div class="info-item">
+          <h3>Hubungan Terus</h3>
+          <p>Telefon: +60 12-345 6789<br>Emel: hello@kupi.com.my</p>
+        </div>
+        
+        <div class="info-item">
+          <h3>Waktu Operasi</h3>
+          <p>Isnin - Jumaat: 8:00 Pagi - 10:00 Malam<br>Sabtu - Ahad: 9:00 Pagi - 11:00 Malam</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

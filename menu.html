@@ -7,31 +7,27 @@
   <style>
     :root { --dark: #0D1310; --brown: #A36939; --bg: #F9F8F6; }
     * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
-    body { background: var(--bg); color: var(--dark); }
+    body { background: var(--bg); color: var(--dark); display: flex; flex-direction: column; min-height: 100vh; }
     
-    /* Header */
     header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; }
     .logo { color: #FFF; font-size: 26px; font-weight: bold; letter-spacing: 2px; }
     .logo span { color: var(--brown); }
     nav a { color: #FFF; text-decoration: none; margin-left: 25px; font-weight: 500; transition: 0.3s; }
     nav a.active, nav a:hover { color: var(--brown); }
     
+    /* Animations */
+    @keyframes fadeUpTitle { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
+
     /* Menu Content */
-    .container { padding: 60px 8%; max-width: 1200px; margin: 0 auto; min-height: 80vh; }
-    .page-title { text-align: center; font-size: 36px; margin-bottom: 50px; }
+    .container { flex: 1; padding: 60px 8%; max-width: 1200px; margin: 0 auto; width: 100%; }
+    .page-title { text-align: center; font-size: 36px; margin-bottom: 50px; animation: fadeUpTitle 0.8s ease-out forwards; }
     
     .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
     
-    /* 卡片動畫設定 */
-    @keyframes cardFadeIn {
-      0% { opacity: 0; transform: translateY(40px); }
-      100% { opacity: 1; transform: translateY(0); }
-    }
-
     .menu-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; opacity: 0; animation: cardFadeIn 0.6s ease-out forwards; }
     .menu-card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
     
-    /* 依序延遲出現效果 */
     .menu-card:nth-child(1) { animation-delay: 0.1s; }
     .menu-card:nth-child(2) { animation-delay: 0.2s; }
     .menu-card:nth-child(3) { animation-delay: 0.3s; }
@@ -48,10 +44,10 @@
     .menu-desc { color: #666; line-height: 1.6; font-size: 14px; }
 
     /* Footer */
-    footer { background: var(--dark); color: white; padding: 50px 8% 20px; margin-top: 60px; }
+    footer { background: var(--dark); color: white; padding: 40px 8% 20px; margin-top: 40px; }
     .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 30px; }
     .footer-col h4 { color: var(--brown); margin-bottom: 15px; font-size: 18px; }
-    .footer-col p { color: #CCC; font-size: 14px; margin-bottom: 8px; }
+    .footer-col p { color: #CCC; font-size: 14px; margin-bottom: 8px; line-height: 1.5; }
     .copyright { text-align: center; color: #888; font-size: 13px; }
   </style>
 </head>
@@ -67,91 +63,25 @@
     </nav>
   </header>
 
-  <div class="container">
+  <main class="container">
     <h1 class="page-title">Menu Pilihan Kami</h1>
     <div class="menu-grid">
-      
-      <!-- Item 1 -->
-      <div class="menu-card">
-        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop');"></div>
-        <div class="menu-info">
-          <div class="menu-title"><span>Espresso Hot</span> <span class="menu-price">RM 9.00</span></div>
-          <div class="menu-desc">Pekat, kaya dengan rasa asli biji kopi pilihan untuk memulakan hari anda.</div>
-        </div>
-      </div>
-      
-      <!-- Item 2 -->
-      <div class="menu-card">
-        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600&auto=format&fit=crop');"></div>
-        <div class="menu-info">
-          <div class="menu-title"><span>Iced Spanish Latte</span> <span class="menu-price">RM 14.00</span></div>
-          <div class="menu-desc">Gabungan espresso berkrim dengan kemanisan susu pekat yang menyegarkan.</div>
-        </div>
-      </div>
-      
-      <!-- Item 3 -->
-      <div class="menu-card">
-        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop');"></div>
-        <div class="menu-info">
-          <div class="menu-title"><span>Butter Croissant</span> <span class="menu-price">RM 8.50</span></div>
-          <div class="menu-desc">Pastri berlapis yang rangup di luar dan lembut di dalam, dibakar segar.</div>
-        </div>
-      </div>
-
-      <!-- Item 4 (Baru) -->
-      <div class="menu-card">
-        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?q=80&w=600&auto=format&fit=crop');"></div>
-        <div class="menu-info">
-          <div class="menu-title"><span>Premium Matcha Latte</span> <span class="menu-price">RM 13.00</span></div>
-          <div class="menu-desc">Serbuk teh hijau Uji berkualiti tinggi yang diputar bersama susu suam.</div>
-        </div>
-      </div>
-
-      <!-- Item 5 (Baru) -->
-      <div class="menu-card">
-        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1557006021-b85faa2ca212?q=80&w=600&auto=format&fit=crop');"></div>
-        <div class="menu-info">
-          <div class="menu-title"><span>Caramel Macchiato</span> <span class="menu-price">RM 15.00</span></div>
-          <div class="menu-desc">Kopi vanila dengan lapisan buih susu dan dilumur karamel manis.</div>
-        </div>
-      </div>
-
-      <!-- Item 6 (Baru) -->
-      <div class="menu-card">
-        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=600&auto=format&fit=crop');"></div>
-        <div class="menu-info">
-          <div class="menu-title"><span>Dark Choc Brownie</span> <span class="menu-price">RM 10.00</span></div>
-          <div class="menu-desc">Kek coklat padat dan kenyal dengan cip coklat gelap premium.</div>
-        </div>
-      </div>
-
-      <!-- Item 7 (Baru) -->
-      <div class="menu-card">
-        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600&auto=format&fit=crop');"></div>
-        <div class="menu-info">
-          <div class="menu-title"><span>Classic Cheesecake</span> <span class="menu-price">RM 12.00</span></div>
-          <div class="menu-desc">Kek keju gaya New York yang dibakar sempurna dengan tekstur halus.</div>
-        </div>
-      </div>
-
-      <!-- Item 8 (Baru) -->
-      <div class="menu-card">
-        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1576092762791-dd9e2220abd4?q=80&w=600&auto=format&fit=crop');"></div>
-        <div class="menu-info">
-          <div class="menu-title"><span>Earl Grey Hot Tea</span> <span class="menu-price">RM 8.00</span></div>
-          <div class="menu-desc">Teh hitam klasik dengan aroma bergamot yang menenangkan jiwa.</div>
-        </div>
-      </div>
-
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Espresso Hot</span> <span class="menu-price">RM 9.00</span></div><div class="menu-desc">Pekat, kaya dengan rasa asli biji kopi pilihan untuk memulakan hari anda.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Iced Spanish Latte</span> <span class="menu-price">RM 14.00</span></div><div class="menu-desc">Gabungan espresso berkrim dengan kemanisan susu pekat yang menyegarkan.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Butter Croissant</span> <span class="menu-price">RM 8.50</span></div><div class="menu-desc">Pastri berlapis yang rangup di luar dan lembut di dalam, dibakar segar.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Premium Matcha Latte</span> <span class="menu-price">RM 13.00</span></div><div class="menu-desc">Serbuk teh hijau Uji berkualiti tinggi yang diputar bersama susu suam.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1557006021-b85faa2ca212?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Caramel Macchiato</span> <span class="menu-price">RM 15.00</span></div><div class="menu-desc">Kopi vanila dengan lapisan buih susu dan dilumur karamel manis.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Dark Choc Brownie</span> <span class="menu-price">RM 10.00</span></div><div class="menu-desc">Kek coklat padat dan kenyal dengan cip coklat gelap premium.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Classic Cheesecake</span> <span class="menu-price">RM 12.00</span></div><div class="menu-desc">Kek keju gaya New York yang dibakar sempurna dengan tekstur halus.</div></div></div>
+      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1576092762791-dd9e2220abd4?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Earl Grey Hot Tea</span> <span class="menu-price">RM 8.00</span></div><div class="menu-desc">Teh hitam klasik dengan aroma bergamot yang menenangkan jiwa.</div></div></div>
     </div>
-  </div>
+  </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-grid">
       <div class="footer-col">
         <div class="logo" style="margin-bottom: 15px;">KUPI<span>.</span></div>
-        <p>Destinasi kopi dan pastri moden minimalis.</p>
+        <p>Destinasi kopi dan pastri moden minimalis pilihan anda.</p>
       </div>
       <div class="footer-col">
         <h4>Hubungi Kami</h4>

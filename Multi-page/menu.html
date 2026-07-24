@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <title>KUPI - Menu</title>
+  <style>
+    :root { --dark: #0D1310; --brown: #A36939; --bg: #F9F8F6; }
+    * { margin:0; padding:0; box-sizing:border-box; font-family:sans-serif; }
+    body { background: var(--bg); color: var(--dark); }
+    header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; }
+    .logo { color: #FFF; font-size: 24px; font-weight: bold; }
+    .logo span { color: var(--brown); }
+    nav a { color: #FFF; text-decoration: none; margin-left: 20px; }
+    nav a.active { color: var(--brown); font-weight: bold; }
+    .container { padding: 40px 8%; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-top: 30px; }
+    .card { background: white; border-radius: 8px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); }
+    .price { color: var(--brown); font-weight: bold; margin: 10px 0; }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">KUPI<span>.</span></div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="menu.html" class="active">Menu</a>
+      <a href="profile.html">Profile</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <h1>Menu Minuman & Pastri</h1>
+    <div class="grid">
+      <div class="card">
+        <h3>Espresso Hot</h3>
+        <div class="price">RM 9.00</div>
+        <p>Pekat dan kaya dengan rasa asli biji kopi pilihan.</p>
+      </div>
+      <div class="card">
+        <h3>Iced Spanish Latte</h3>
+        <div class="price">RM 14.00</div>
+        <p>Gabungan espresso berkrim dengan kemanisan susu pekat.</p>
+      </div>
+      <div class="card">
+        <h3>Butter Croissant</h3>
+        <div class="price">RM 8.50</div>
+        <p>Pastri berlapis yang rangup dan segar dibakar harian.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

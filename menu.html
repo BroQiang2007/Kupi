@@ -3,12 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KUPI - Menu</title>
+  <title>KUPI - Welcome</title>
   <style>
     :root { --dark: #0D1310; --brown: #A36939; --bg: #F9F8F6; }
     * { margin:0; padding:0; box-sizing:border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
     body { background: var(--bg); color: var(--dark); display: flex; flex-direction: column; min-height: 100vh; }
     
+    /* Header */
     header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; }
     .logo { color: #FFF; font-size: 26px; font-weight: bold; letter-spacing: 2px; }
     .logo span { color: var(--brown); }
@@ -16,39 +17,28 @@
     nav a.active, nav a:hover { color: var(--brown); }
     
     /* Animations */
-    @keyframes fadeUpTitle { 0% { opacity: 0; transform: translateY(20px); } 100% { opacity: 1; transform: translateY(0); } }
-    @keyframes cardFadeIn { 0% { opacity: 0; transform: translateY(40px); } 100% { opacity: 1; transform: translateY(0); } }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
 
-    /* Menu Content */
-    .container { flex: 1; padding: 60px 8%; max-width: 1200px; margin: 0 auto; width: 100%; }
-    .page-title { text-align: center; font-size: 36px; margin-bottom: 50px; animation: fadeUpTitle 0.8s ease-out forwards; }
+    /* Main Content */
+    .portal-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 60px 8%; background: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1600&auto=format&fit=crop') center/cover; position: relative; }
+    .portal-container::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(13, 19, 16, 0.8); }
     
-    .menu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+    .content-box { position: relative; z-index: 1; text-align: center; color: white; max-width: 800px; animation: fadeUp 1s ease-out forwards; }
     
-    .menu-card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); transition: 0.3s; opacity: 0; animation: cardFadeIn 0.6s ease-out forwards; }
-    .menu-card:hover { transform: translateY(-8px); box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+    .promo-badge { background: var(--brown); color: white; display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 20px; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(163, 105, 57, 0.3); }
+    .content-box h1 { font-size: 50px; margin-bottom: 20px; }
+    .content-box p { font-size: 18px; color: #EEE; margin-bottom: 40px; line-height: 1.6; }
     
-    .menu-card:nth-child(1) { animation-delay: 0.1s; }
-    .menu-card:nth-child(2) { animation-delay: 0.2s; }
-    .menu-card:nth-child(3) { animation-delay: 0.3s; }
-    .menu-card:nth-child(4) { animation-delay: 0.4s; }
-    .menu-card:nth-child(5) { animation-delay: 0.5s; }
-    .menu-card:nth-child(6) { animation-delay: 0.6s; }
-    .menu-card:nth-child(7) { animation-delay: 0.7s; }
-    .menu-card:nth-child(8) { animation-delay: 0.8s; }
-
-    .menu-img { height: 220px; background-size: cover; background-position: center; }
-    .menu-info { padding: 25px; }
-    .menu-title { font-size: 18px; font-weight: bold; margin-bottom: 10px; display: flex; justify-content: space-between; }
-    .menu-price { color: var(--brown); }
-    .menu-desc { color: #666; line-height: 1.6; font-size: 14px; }
-
-    /* Footer */
-    footer { background: var(--dark); color: white; padding: 40px 8% 20px; margin-top: 40px; }
-    .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 30px; margin-bottom: 30px; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 30px; }
-    .footer-col h4 { color: var(--brown); margin-bottom: 15px; font-size: 18px; }
-    .footer-col p { color: #CCC; font-size: 14px; margin-bottom: 8px; line-height: 1.5; }
-    .copyright { text-align: center; color: #888; font-size: 13px; }
+    /* Buttons */
+    .btn-group { display: flex; gap: 20px; justify-content: center; }
+    .btn { padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 16px; transition: 0.3s; }
+    .btn-primary { background: var(--brown); color: white; border: 2px solid var(--brown); }
+    .btn-primary:hover { background: #8a572e; border-color: #8a572e; transform: translateY(-3px); }
+    .btn-outline { background: transparent; color: white; border: 2px solid white; }
+    .btn-outline:hover { background: white; color: var(--dark); transform: translateY(-3px); }
   </style>
 </head>
 <body>
@@ -56,48 +46,25 @@
   <header>
     <div class="logo">KUPI<span>.</span></div>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="menu.html" class="active">Menu</a>
+      <a href="index.html" class="active">Home</a>
+      <a href="menu.html">Menu</a>
       <a href="profile.html">Profile</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <main class="container">
-    <h1 class="page-title">Menu Pilihan Kami</h1>
-    <div class="menu-grid">
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Espresso Hot</span> <span class="menu-price">RM 9.00</span></div><div class="menu-desc">Pekat, kaya dengan rasa asli biji kopi pilihan untuk memulakan hari anda.</div></div></div>
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c213?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Iced Spanish Latte</span> <span class="menu-price">RM 14.00</span></div><div class="menu-desc">Gabungan espresso berkrim dengan kemanisan susu pekat yang menyegarkan.</div></div></div>
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Butter Croissant</span> <span class="menu-price">RM 8.50</span></div><div class="menu-desc">Pastri berlapis yang rangup di luar dan lembut di dalam, dibakar segar.</div></div></div>
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Premium Matcha Latte</span> <span class="menu-price">RM 13.00</span></div><div class="menu-desc">Serbuk teh hijau Uji berkualiti tinggi yang diputar bersama susu suam.</div></div></div>
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1557006021-b85faa2ca212?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Caramel Macchiato</span> <span class="menu-price">RM 15.00</span></div><div class="menu-desc">Kopi vanila dengan lapisan buih susu dan dilumur karamel manis.</div></div></div>
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Dark Choc Brownie</span> <span class="menu-price">RM 10.00</span></div><div class="menu-desc">Kek coklat padat dan kenyal dengan cip coklat gelap premium.</div></div></div>
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1533134242443-d4fd215305ad?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Classic Cheesecake</span> <span class="menu-price">RM 12.00</span></div><div class="menu-desc">Kek keju gaya New York yang dibakar sempurna dengan tekstur halus.</div></div></div>
-      <div class="menu-card"><div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1576092762791-dd9e2220abd4?q=80&w=600&auto=format&fit=crop');"></div><div class="menu-info"><div class="menu-title"><span>Earl Grey Hot Tea</span> <span class="menu-price">RM 8.00</span></div><div class="menu-desc">Teh hitam klasik dengan aroma bergamot yang menenangkan jiwa.</div></div></div>
+  <main class="portal-container">
+    <div class="content-box">
+      <div class="promo-badge">🔥 Promosi Terkini: Set Kombo Diskaun 20%</div>
+      <h1>Kopi Moden & Minimalis</h1>
+      <p>Selamat datang ke KUPI. Kami menyajikan kopi artisan dan pastri segar dalam ruang yang direka untuk ketenangan anda. Sila terokai laman web kami melalui pautan di bawah.</p>
+      
+      <div class="btn-group">
+        <a href="menu.html" class="btn btn-primary">Lihat Menu</a>
+        <a href="profile.html" class="btn btn-outline">Kenali Kami</a>
+      </div>
     </div>
   </main>
-
-  <footer>
-    <div class="footer-grid">
-      <div class="footer-col">
-        <div class="logo" style="margin-bottom: 15px;">KUPI<span>.</span></div>
-        <p>Destinasi kopi dan pastri moden minimalis pilihan anda.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Hubungi Kami</h4>
-        <p>📍 No. 12, Jalan Moden 1, Johor</p>
-        <p>📞 +60 12-345 6789</p>
-      </div>
-      <div class="footer-col">
-        <h4>Waktu Operasi</h4>
-        <p>Isnin - Jumaat: 8 AM - 10 PM</p>
-        <p>Sabtu - Ahad: 9 AM - 11 PM</p>
-      </div>
-    </div>
-    <div class="copyright">
-      &copy; 2026 KUPI Company. Hak Cipta Terpelihara.
-    </div>
-  </footer>
 
 </body>
 </html>

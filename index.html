@@ -11,8 +11,9 @@
     
     /* Header */
     header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; }
-    .logo { color: #FFF; font-size: 26px; font-weight: bold; letter-spacing: 2px; }
+    .logo { color: #FFF; font-size: 26px; font-weight: bold; letter-spacing: 2px; text-decoration: none; transition: 0.3s; }
     .logo span { color: var(--brown); }
+    .logo:hover { opacity: 0.8; }
     nav a { color: #FFF; text-decoration: none; margin-left: 25px; font-weight: 500; transition: 0.3s; }
     nav a.active, nav a:hover { color: var(--brown); }
     
@@ -44,7 +45,8 @@
 <body>
 
   <header>
-    <div class="logo">KUPI<span>.</span></div>
+    <!-- Logo 已經變成可以點擊的連結 -->
+    <a href="index.html" class="logo">KUPI<span>.</span></a>
     <nav>
       <a href="index.html" class="active">Home</a>
       <a href="menu.html">Menu</a>

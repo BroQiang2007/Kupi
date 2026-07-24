@@ -20,7 +20,17 @@
     .portal-container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 0 8%; background: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?q=80&w=1600&auto=format&fit=crop') center/cover; position: relative; }
     .portal-container::before { content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(13, 19, 16, 0.8); }
     
-    .content-box { position: relative; z-index: 1; text-align: center; color: white; max-width: 800px; }
+    /* 動畫設定 */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .content-box { position: relative; z-index: 1; text-align: center; color: white; max-width: 800px; animation: fadeUp 1s ease-out forwards; }
+    
+    /* Promosi Label */
+    .promo-badge { background: #A36939; color: white; display: inline-block; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; margin-bottom: 20px; letter-spacing: 1px; box-shadow: 0 4px 10px rgba(163, 105, 57, 0.3); }
+    
     .content-box h1 { font-size: 50px; margin-bottom: 20px; }
     .content-box p { font-size: 18px; color: #EEE; margin-bottom: 40px; line-height: 1.6; }
     
@@ -28,15 +38,14 @@
     .btn-group { display: flex; gap: 20px; justify-content: center; }
     .btn { padding: 15px 30px; text-decoration: none; border-radius: 6px; font-weight: bold; font-size: 16px; transition: 0.3s; }
     .btn-primary { background: var(--brown); color: white; border: 2px solid var(--brown); }
-    .btn-primary:hover { background: #8a572e; border-color: #8a572e; }
+    .btn-primary:hover { background: #8a572e; border-color: #8a572e; transform: translateY(-3px); }
     .btn-outline { background: transparent; color: white; border: 2px solid white; }
-    .btn-outline:hover { background: white; color: var(--dark); }
+    .btn-outline:hover { background: white; color: var(--dark); transform: translateY(-3px); }
 
   </style>
 </head>
 <body>
 
-  <!-- Header Multi-page -->
   <header>
     <div class="logo">KUPI<span>.</span></div>
     <nav>
@@ -47,16 +56,15 @@
     </nav>
   </header>
 
-  <!-- Portal Content -->
   <div class="portal-container">
     <div class="content-box">
+      <div class="promo-badge">🔥 Promosi Terkini: Set Kombo Kopi + Croissant Diskaun 20%</div>
       <h1>Kopi Moden & Minimalis</h1>
       <p>Selamat datang ke KUPI. Kami menyajikan kopi artisan dan pastri segar dalam ruang yang direka untuk ketenangan anda. Sila terokai laman web kami melalui pautan di bawah.</p>
       
-      <!-- Pautan ke halaman lain (Multi-page) -->
       <div class="btn-group">
-        <a href="menu.html" class="btn btn-primary">Lihat Menu (Menu Page)</a>
-        <a href="profile.html" class="btn btn-outline">Kenali Kami (Profile Page)</a>
+        <a href="menu.html" class="btn btn-primary">Lihat Menu</a>
+        <a href="profile.html" class="btn btn-outline">Kenali Kami</a>
       </div>
     </div>
   </div>

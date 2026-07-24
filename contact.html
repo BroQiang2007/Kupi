@@ -10,8 +10,9 @@
     body { background: var(--bg); color: var(--dark); display: flex; flex-direction: column; min-height: 100vh; }
     
     header { background: var(--dark); padding: 20px 8%; display: flex; justify-content: space-between; align-items: center; }
-    .logo { color: #FFF; font-size: 26px; font-weight: bold; letter-spacing: 2px; }
+    .logo { color: #FFF; font-size: 26px; font-weight: bold; letter-spacing: 2px; text-decoration: none; transition: 0.3s; }
     .logo span { color: var(--brown); }
+    .logo:hover { opacity: 0.8; }
     nav a { color: #FFF; text-decoration: none; margin-left: 25px; font-weight: 500; transition: 0.3s; }
     nav a.active, nav a:hover { color: var(--brown); }
     
@@ -55,7 +56,7 @@
 <body>
 
   <header>
-    <div class="logo">KUPI<span>.</span></div>
+    <a href="index.html" class="logo">KUPI<span>.</span></a>
     <nav>
       <a href="index.html">Home</a>
       <a href="menu.html">Menu</a>
@@ -99,7 +100,7 @@
   <footer>
     <div class="footer-grid">
       <div class="footer-col">
-        <div class="logo" style="margin-bottom: 15px;">KUPI<span>.</span></div>
+        <a href="index.html" class="logo" style="margin-bottom: 15px; display: block;">KUPI<span>.</span></a>
         <p>Destinasi kopi dan pastri moden minimalis pilihan anda.</p>
       </div>
       <div class="footer-col">

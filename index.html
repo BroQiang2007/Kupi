@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KUPI - Modern Coffee & Pastries</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark-espresso: #0D1310;
+      --warm-coffee: #A36939;
+      --fresh-green: #4A7638;
+      --light-bg: #F9F8F6;
+      --card-bg: #FFFFFF;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background-color: var(--light-bg);
+      color: var(--dark-espresso);
+      line-height: 1.6;
+    }
+
+    /* HEADER & NAVIGATION */
+    header {
+      background-color: var(--dark-espresso);
+      color: #FFF;
+      padding: 1.2rem 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #FFF;
+    }
+
+    .logo span {
+      color: var(--warm-coffee);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #FFF;
+      text-decoration: none;
+      font-weight: 400;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--warm-coffee);
+    }
+
+    .header-socials {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .social-icon {
+      color: #FFF;
+      text-decoration: none;
+      font-size: 0.9rem;
+      background: rgba(255,255,255,0.1);
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+    }
+
+    /* HERO SECTION */
+    .hero {
+      background: linear-gradient(rgba(13, 19, 16, 0.7), rgba(13, 19, 16, 0.7)), url('https://images.unsplash.com/photo-1501339847302-ac426a4a7cbb?auto=format&fit=crop&w=1200&q=80') center/cover;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: #FFF;
+      padding: 0 20px;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin-bottom: 2rem;
+    }
+
+    .promo-tag {
+      background-color: var(--fresh-green);
+      color: #FFF;
+      padding: 0.5rem 1.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      display: inline-block;
+    }
+
+    .btn-primary {
+      background-color: var(--warm-coffee);
+      color: #FFF;
+      padding: 0.8rem 2rem;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* PROFILE / ABOUT SECTION */
+    .section {
+      padding: 5rem 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.2rem;
+      margin-bottom: 3rem;
+      color: var(--dark-espresso);
+    }
+
+    .profile-container {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .profile-text {
+      flex: 1;
+    }
+
+    .profile-image {
+      flex: 1;
+      height: 350px;
+      background: url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=800&q=80') center/cover;
+      border-radius: 10px;
+    }
+
+    /* MENU SECTION */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .menu-card {
+      background: var(--card-bg);
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    }
+
+    .menu-img {
+      height: 200px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .menu-info {
+      padding: 1.5rem;
+    }
+
+    .menu-title {
+      font-size: 1.2rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-price {
+      color: var(--warm-coffee);
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .menu-desc {
+      font-size: 0.9rem;
+      color: #666;
+    }
+
+    /* CONTACT SECTION */
+    .contact-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+    }
+
+    .contact-form form {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .contact-form input, .contact-form textarea {
+      padding: 0.8rem;
+      border: 1px solid #CCC;
+      border-radius: 5px;
+      width: 100%;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .map-box {
+      width: 100%;
+      height: 200px;
+      background-color: #DDD;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: var(--dark-espresso);
+      color: #FFF;
+      padding: 3rem 8% 1.5rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+
+    .footer-socials a {
+      color: #FFF;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.1);
+      padding-top: 1rem;
+      font-size: 0.8rem;
+      color: #AAA;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="logo">KUPI<span>.</span></div>
+    <nav>
+      <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#profile">Profile</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div class="header-socials">
+      <a href="#" class="social-icon">FB</a>
+      <a href="#" class="social-icon">IG</a>
+    </div>
+  </header>
+
+  <!-- HOME / HERO SECTION -->
+  <section id="home" class="hero">
+    <div class="promo-tag">Tawaran Istimewa: Diskaun 20% Set Kombo!</div>
+    <h1>Kopi & Pastri Moden Minimalis</h1>
+    <p>Nikmati adunan kopi artisan dan pastri segar yang dibakar setiap hari dalam suasana yang menenangkan.</p>
+    <a href="#menu" class="btn-primary">Lihat Menu</a>
+  </section>
+
+  <!-- PROFILE SECTION -->
+  <section id="profile" class="section">
+    <h2 class="section-title">Mengenai KUPI</h2>
+    <div class="profile-container">
+      <div class="profile-text">
+        <h3>Falsafah Minimalis Kami</h3>
+        <p>KUPI diasaskan dengan visi untuk membawakan pengalaman ruang kopi moden yang ringkas namun elegan. Kami percaya bahawa secawan kopi yang baik bermula daripada biji kopi berkualiti tinggi dan suasana yang selesa.</p>
+      </div>
+      <div class="profile-image"></div>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section id="menu" class="section" style="background-color: #FFF;">
+    <h2 class="section-title">Menu Pilihan</h2>
+    <div class="menu-grid">
+      <!-- Item 1 -->
+      <div class="menu-card">
+        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="menu-info">
+          <div class="menu-title">Espresso Hot</div>
+          <div class="menu-price">RM 9.00</div>
+          <div class="menu-desc">Pekat, kaya dengan rasa asli biji kopi pilihan.</div>
+        </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="menu-card">
+        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="menu-info">
+          <div class="menu-title">Iced Spanish Latte</div>
+          <div class="menu-price">RM 14.00</div>
+          <div class="menu-desc">Gabungan espresso berkrim dengan kemanisan susu pekat.</div>
+        </div>
+      </div>
+      <!-- Item 3 -->
+      <div class="menu-card">
+        <div class="menu-img" style="background-image: url('https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=500&q=80');"></div>
+        <div class="menu-info">
+          <div class="menu-title">Butter Croissant</div>
+          <div class="menu-price">RM 8.50</div>
+          <div class="menu-desc">Pastri berlapis yang rangup di luar dan lembut di dalam.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section id="contact" class="section">
+    <h2 class="section-title">Hubungi Kami</h2>
+    <div class="contact-container">
+      <div class="contact-form">
+        <form>
+          <input type="text" placeholder="Nama Anda" required>
+          <input type="email" placeholder="Emel Anda" required>
+          <textarea rows="5" placeholder="Mesej / Pertanyaan"></textarea>
+          <button type="submit" class="btn-primary">Hantar Mesej</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <div>
+          <h4>Alamat Cawangan</h4>
+          <p>No. 12, Jalan Moden 1, Cyberjaya, Selangor</p>
+        </div>
+        <div>
+          <h4>Telefon</h4>
+          <p>+60 12-345 6789</p>
+        </div>
+        <div>
+          <h4>Lokasi Google Maps</h4>
+          <div class="map-box">
+            <a href="https://maps.google.com" target="_blank" style="color: var(--warm-coffee); text-decoration: none; font-weight: 600;">Pautan Google Maps</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="logo">KUPI<span>.</span></div>
+      <div class="footer-socials">
+        <a href="#">Facebook</a>
+        <a href="#">Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 KUPI Company. Hak Cipta Terpelihara.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
